@@ -1,0 +1,13 @@
+diff --git a/node_modules/reactotron-react-native/dist/types/reactotron-react-native.d.ts b/node_modules/reactotron-react-native/dist/types/reactotron-react-native.d.ts
+index d6d570b..8308411 100644
+--- a/node_modules/reactotron-react-native/dist/types/reactotron-react-native.d.ts
++++ b/node_modules/reactotron-react-native/dist/types/reactotron-react-native.d.ts
+@@ -21,7 +21,7 @@ export interface ReactotronReactNative {
+     overlay: (App: React.ReactNode) => void;
+     storybookSwitcher: (App: React.ReactNode) => (Root: React.ReactNode) => React.ReactNode;
+     asyncStorageHandler?: any;
+-    setAsyncStorageHandler?: (asyncStorage: any) => Reactotron<ReactotronReactNative> & ReactotronReactNative;
++    setAsyncStorageHandler: (asyncStorage: any) => Reactotron<ReactotronReactNative> & ReactotronReactNative;
+ }
+ declare const reactotron: Reactotron<ReactotronReactNative> & ReactotronReactNative;
+ export { asyncStorage, trackGlobalErrors, openInEditor, overlay, networking, storybook, devTools };

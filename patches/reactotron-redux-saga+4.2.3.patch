@@ -1,0 +1,13 @@
+diff --git a/node_modules/reactotron-redux-saga/dist/types/index.d.ts b/node_modules/reactotron-redux-saga/dist/types/index.d.ts
+index 0dd6d81..fdf1054 100644
+--- a/node_modules/reactotron-redux-saga/dist/types/index.d.ts
++++ b/node_modules/reactotron-redux-saga/dist/types/index.d.ts
+@@ -1,7 +1,7 @@
+ import { Reactotron } from "reactotron-core-client";
+ import { SagaMonitor } from "redux-saga";
+ import { PluginConfig } from "./sagaMonitor";
+-declare const _default: (pluginConfig: PluginConfig) => (reactotron: Reactotron) => {
++declare const _default: (pluginConfig?: PluginConfig) => (reactotron: Reactotron) => {
+     features: {
+         createSagaMonitor: () => SagaMonitor;
+     };
