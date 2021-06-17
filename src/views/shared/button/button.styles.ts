@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native"
 import { PressableAndroidRippleConfig, StyleSheet } from "react-native"
-import { Column } from "@github-shared/layout"
 import { R } from "@github/res"
+import { Column } from "@github-shared/layout"
 import { IButtonProps, ButtonPreset, RipplePreset } from "./button.props"
 
 export const Container = styled(Column)`
@@ -35,18 +35,16 @@ export const StyledButton = styled.Pressable<IButtonProps>`
 export const getRippleConfig = (
   preset: ButtonPreset,
   ripplePreset: RipplePreset,
-): PressableAndroidRippleConfig => {
-  return {
-    radius:
-      preset === "circular"
-        ? R.layout.circularButtonDimension / 2
-        : preset === "circular-small"
-        ? R.layout.circularSmallButtonDimension / 2
-        : undefined,
-    color: ripplePreset === "secondary" ? R.color.secondaryRipple : R.color.ripple,
-    borderless: false,
-  }
-}
+): PressableAndroidRippleConfig => ({
+  radius:
+    preset === "circular"
+      ? R.layout.circularButtonDimension / 2
+      : preset === "circular-small"
+      ? R.layout.circularSmallButtonDimension / 2
+      : undefined,
+  color: ripplePreset === "secondary" ? R.color.secondaryRipple : R.color.ripple,
+  borderless: false,
+})
 
 export const styles = StyleSheet.create({
   pressedState: {

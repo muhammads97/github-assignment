@@ -2,9 +2,9 @@ import { Monitor } from "apisauce"
 import { default as Tron } from "reactotron-react-native"
 import { reactotronRedux } from "reactotron-redux"
 import sagaPlugin from "reactotron-redux-saga"
-//@ts-ignore No types provided
+// @ts-ignore No types provided
 import ReactotronFlipper from "reactotron-react-native/dist/flipper"
-//@ts-ignore Package Types Path isn't configured
+// @ts-ignore Package Types Path isn't configured
 import apisaucePlugin from "reactotron-apisauce"
 import { AsyncStorage } from "@github/services/storage"
 import { IS_DEV_ENV } from "@github/utils"

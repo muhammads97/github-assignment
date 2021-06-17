@@ -26,7 +26,7 @@
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "github.app"
                BlueprintName = "github"
-               ReferencedContainer = "container:github.xcodeproj">
+               ReferencedContainer = "container:github.xcworkspace">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,7 +44,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "githubTests.xctest"
                BlueprintName = "githubTests"
-               ReferencedContainer = "container:github.xcodeproj">
+               ReferencedContainer = "container:github.xcworkspace">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,7 +66,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "github.app"
             BlueprintName = "github"
-            ReferencedContainer = "container:github.xcodeproj">
+            ReferencedContainer = "container:github.xcworkspace">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,7 +83,7 @@
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "github.app"
             BlueprintName = "github"
-            ReferencedContainer = "container:github.xcodeproj">
+            ReferencedContainer = "container:github.xcworkspace">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

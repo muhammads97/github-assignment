@@ -15,7 +15,7 @@ const Screen = (props: IScreenProps) => {
       {preset === "scroll" || preset === "scrollStack" ? (
         <StyledScrollScreen
           preset={preset}
-          keyboardShouldPersistTaps={"handled"}
+          keyboardShouldPersistTaps="handled"
           contentContainerStyle={preset === "scrollStack" && styles.stackContent}
           {...rest}
         />

@@ -33,13 +33,12 @@ export function apiRequest<TServerData, TServerResponse, TPathParams, TData, TRe
   endpoint: IEndpoint<TServerData, TServerResponse, TPathParams, TData, TResponse>,
   requestData: IRequestData<TServerData, TServerResponse, TPathParams, TData, TResponse>,
 ) {
-  return call(() => {
-    return API.request(endpoint, requestData)
-  })
+  return call(() => API.request(endpoint, requestData))
 }
 
 class SagaManager {
   private static latestTaskId = 0
+
   private static tasks = new Map<TaskId, Task>()
 
   public generator<T, AP, AT, AM, R>(
@@ -51,12 +50,12 @@ class SagaManager {
       const { taskId = SagaManager.generateNewTaskId(), callback }: ActionMeta = action.meta ?? {}
 
       try {
-        //@ts-ignore FIXME: Is there a way to infer this (see typescript 3.6 generators notes)?
+        // @ts-ignore FIXME: Is there a way to infer this (see typescript 3.6 generators notes)?
         const task: Task = yield fork(handler, action)
 
         SagaManager.tasks.set(taskId, task)
 
-        //@ts-ignore FIXME: Is there a way to infer this (see typescript 3.6 generators notes)?
+        // @ts-ignore FIXME: Is there a way to infer this (see typescript 3.6 generators notes)?
         const response: IResponse<R> = yield join(task)
 
         if (!response.ok) {

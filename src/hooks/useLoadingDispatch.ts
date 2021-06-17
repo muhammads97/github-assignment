@@ -5,17 +5,18 @@ function useLoadingDispatch(dispatch: AsyncDispatch): [boolean, AsyncDispatch] {
   const [loading, setLoading] = useState(false)
   const isUnmountedRef = useRef(false)
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       isUnmountedRef.current = true
-    }
-  }, [])
+    },
+    [],
+  )
 
   const loadingDispatch = useCallback(
     (action, throwError: boolean = false) => {
       setLoading(true)
-      return new Promise<void>((resolve, reject) => {
-        return dispatch(action, true)
+      return new Promise<void>((resolve, reject) =>
+        dispatch(action, true)
           .then(resolve)
           .catch(() => {
             throwError && reject()
@@ -26,8 +27,8 @@ function useLoadingDispatch(dispatch: AsyncDispatch): [boolean, AsyncDispatch] {
             }
 
             setLoading(false)
-          })
-      })
+          }),
+      )
     },
     [dispatch],
   )

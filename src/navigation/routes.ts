@@ -1,3 +1,6 @@
 export enum AppRoute {
-  Test = "Test", // TODO: Just an example. Should be removed
+  BottomTab = "Root",
+  Home = "Home",
+  Profile = "Profile",
+  Search = "Search",
 }

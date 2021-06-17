@@ -63,7 +63,7 @@ export class Api {
     const operation = this.getMethodOperation(method)
     const response: IApiResponse<TServerResponse> = await operation(fullPath, serverData, {
       cancelToken,
-      responseType: responseType,
+      responseType,
     })
 
     return this.handleApiResponse(response, mapper)

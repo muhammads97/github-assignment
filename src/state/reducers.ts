@@ -1,4 +1,4 @@
-import { errorReducer, errorReducerName, loadingReducer, loadingReducerName } from "./ducks/"
+import { errorReducer, errorReducerName, loadingReducer, loadingReducerName } from "./ducks"
 
 const reducers = {
   [errorReducerName]: errorReducer,

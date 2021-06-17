@@ -26,7 +26,7 @@ const configureAppStore = () => {
   const appStore = configureStore({
     reducer: appReducer,
     middleware: middlewares,
-    devTools: false,
+    devTools: true,
     preloadedState: initialState,
     enhancers: tronEnhancer ? [tronEnhancer] : [],
   })

@@ -8,7 +8,7 @@ import { IGeneralProblem, ResponseProblem } from "./api.types"
  * @param response The api response.
  */
 export function getGeneralApiProblem<T, U>(response: ApiResponse<T, U>): IGeneralProblem {
-  const errors = R.string.errors
+  const { errors } = R.string
   switch (response.problem) {
     case "CONNECTION_ERROR":
     case "NETWORK_ERROR":

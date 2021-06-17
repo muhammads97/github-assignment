@@ -17,10 +17,13 @@ export enum PlatformType {
 
 export class Platform {
   public static readonly isIOS = RNPlatform.OS === PlatformType.Ios
+
   public static readonly isAndroid = RNPlatform.OS === PlatformType.Android
+
   public static readonly isIphoneX = _isIphoneX()
 
   public static readonly type = RNPlatform.OS
+
   public static readonly version = RNPlatform.Version
 
   public static getStatusBarHeight(withSafeArea = false): number {

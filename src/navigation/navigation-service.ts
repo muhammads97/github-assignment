@@ -28,7 +28,7 @@ class NavigationService {
   ) {
     const routeName = args[0]
     const params = args.length > 0 ? args[args.length - 1] : undefined
-    //@ts-ignore Safe to ignore
+    // @ts-ignore Safe to ignore
     this.navigator && this.navigator.navigate({ name: routeName, params })
   }
 

@@ -5,16 +5,14 @@ import {
   CamelKeysToSnakeCase,
 } from "@github/utils"
 
-export const delay = (ms: number): Promise<void> => {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
+export const delay = (ms: number): Promise<void> =>
+  new Promise((resolve) => setTimeout(resolve, ms))
 
-export const parse = <U, T extends Array<U>>(str: string, ...values: T): string => {
-  return str.replace(/%s/g, () => {
+export const parse = <U, T extends Array<U>>(str: string, ...values: T): string =>
+  str.replace(/%s/g, () => {
     const value = String(values.shift())
     return value ?? ""
   })
-}
 
 export const snakeToCamelMapper = <D extends object>(data: D): SnakeKeysToCamelCase<D> =>
   snakeKeysToCamel(data)

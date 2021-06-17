@@ -10,9 +10,7 @@ const Button = ({
   const { preset = "default", ripplePreset = "primary" } = restProps
 
   const buttonStyle = useCallback(
-    ({ pressed }: { pressed: boolean }) => {
-      return pressed ? [styles.pressedState, style] : style
-    },
+    ({ pressed }: { pressed: boolean }) => (pressed ? [styles.pressedState, style] : style),
     [style],
   )
   return (

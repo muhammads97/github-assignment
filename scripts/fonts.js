@@ -7,12 +7,9 @@ const fontFileNames = () => {
   const array = fs
     .readdirSync(fontsAssetDirectory)
     .filter((file) => fontExtensions.some((ext) => file.endsWith(ext)))
-    .map((file) => {
-      return fontExtensions.reduce(
-        (filenameWithoutExt, ext) => filenameWithoutExt.replace(ext, ""),
-        file,
-      )
-    })
+    .map((file) =>
+      fontExtensions.reduce((filenameWithoutExt, ext) => filenameWithoutExt.replace(ext, ""), file),
+    )
   return Array.from(new Set(array))
 }
 

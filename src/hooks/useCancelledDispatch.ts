@@ -9,7 +9,7 @@ function useCancelledDispatch<T extends unknown>(
   const cancelDispatch = useCallback(
     (action) => {
       const cancelledAction = cancellable(action)
-      const taskId = cancelledAction.meta.taskId
+      const { taskId } = cancelledAction.meta
       taskIdsRef.current.push(taskId)
       return dispatch(cancelledAction as T)
     },
@@ -23,13 +23,14 @@ function useCancelledDispatch<T extends unknown>(
     [dispatch],
   )
 
-  useEffect(() => {
-    return () => {
+  useEffect(
+    () => () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       const taskIds = taskIdsRef.current
       dispatch(cancelTasksAction(taskIds) as T)
-    }
-  }, [dispatch])
+    },
+    [dispatch],
+  )
 
   return [cancelDispatch, cancelTask]
 }

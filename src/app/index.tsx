@@ -9,17 +9,15 @@ import { persistor, store } from "@github/state/store"
 
 enableScreens()
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <SafeAreaProvider>
-          <AppNavigator />
-          <ErrorHandler />
-        </SafeAreaProvider>
-      </PersistGate>
-    </Provider>
-  )
-}
+const App = () => (
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <SafeAreaProvider>
+        <AppNavigator />
+        <ErrorHandler />
+      </SafeAreaProvider>
+    </PersistGate>
+  </Provider>
+)
 
 export default App
