@@ -4,6 +4,7 @@ const layout = {
   circularButtonDimension: 50,
   circularSmallButtonDimension: 30,
   smallIconSize: 24,
+  headerHeight: 50,
 } as const
 
 export default layout

@@ -5,6 +5,7 @@ import { AppRoute } from "@github/navigation/routes"
 import dummyComponent from "@github/views/dummy-component"
 import color from "@github/res/color"
 import image from "@github/assets/images"
+import { HomeStackNavigator } from "@github/navigation/home-stack-navigator"
 import { ITabParamList } from "./bottom-tab-navigator.types"
 
 const Tab = createBottomTabNavigator<ITabParamList>()
@@ -25,7 +26,7 @@ export default () => (
     }}>
     <Tab.Screen
       name={AppRoute.Home}
-      component={dummyComponent}
+      component={HomeStackNavigator}
       options={{
         tabBarIcon: () => <Image source={image.home} style={{ marginBottom: 10 }} />,
       }}

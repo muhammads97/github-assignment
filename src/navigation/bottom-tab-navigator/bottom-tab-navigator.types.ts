@@ -1,9 +1,10 @@
-import { RouteProp } from "@react-navigation/native"
+import { NavigatorScreenParams, RouteProp } from "@react-navigation/native"
 import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs"
 import { AppRoute } from "@github/navigation/routes"
+import { IHomeParamList } from "@github/navigation/home-stack-navigator/home-stack-navogator.types"
 
 export type ITabParamList = {
-  [AppRoute.Home]: undefined
+  [AppRoute.Home]: NavigatorScreenParams<IHomeParamList>
   [AppRoute.Profile]: undefined
 }
 
