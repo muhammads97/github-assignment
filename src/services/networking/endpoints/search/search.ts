@@ -6,6 +6,6 @@ export type ISearchResultItem = SnakeKeysToCamelCase<ISearchResultParam>
 export type ISearchPayload = SnakeKeysToCamelCase<IServerSearchPayload>
 
 export const searchEndpoint: IDataEndpoint<IServerSearchParams, IServerSearchPayload> = {
-  path: "search/users",
-  method: HttpMethod.Post,
+  path: "search/users?%s",
+  method: HttpMethod.Get,
 } as const

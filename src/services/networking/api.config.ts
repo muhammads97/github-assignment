@@ -1,4 +1,4 @@
-import { ENV } from "@github/config"
+import Config from "react-native-config"
 import { ApiConstants } from "./api.constants"
 
 /**
@@ -20,6 +20,6 @@ export interface IApiConfig {
  * The default configuration for the app.
  */
 export const DEFAULT_API_CONFIG: IApiConfig = {
-  url: ENV.baseURL,
+  url: Config.baseURL,
   minimumTimeout: ApiConstants.requestTimeout,
 }

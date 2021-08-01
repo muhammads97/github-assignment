@@ -100,6 +100,10 @@ export class Api {
     this.apisauce?.addMonitor(monitor)
   }
 
+  public getBaseURL() {
+    return this.apisauce.getBaseURL()
+  }
+
   public newCancelSource() {
     return CancelToken.source()
   }

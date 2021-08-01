@@ -1,12 +1,10 @@
-export interface ISearchResult {
-  name: string
-}
+import { ISearchResultParam } from "@github/services/networking/endpoints/search/search.server"
 
 export interface ISearchState {
   type: "Organizations" | "People" | undefined
-  results: Array<ISearchResult>
+  results: Array<ISearchResultParam>
 }
 
 export interface ISearch {
-  results: Array<ISearchResult>
+  results: Array<ISearchResultParam>
 }

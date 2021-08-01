@@ -2,15 +2,18 @@
 import React from "react"
 import { Image, TextInput, TouchableOpacity, View } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { useDispatch } from "react-redux"
 import image from "@github/assets/images"
 import { AppRoute } from "@github/navigation/routes"
 import color from "@github/res/color"
 import layout from "@github/res/layout"
+import { searchUsersAction } from "@github/state"
 import { ISearchHeaderProps } from "./header.props"
 import styles from "./header.styles"
 import SearchOption from "./search-option"
 
 export default (props: ISearchHeaderProps) => {
+  const dispatch = useDispatch()
   const [searchWord, setSearchWord] = React.useState("")
   const [searchFocused, setSearchFocused] = React.useState(false)
   const insets = useSafeAreaInsets()
@@ -57,7 +60,10 @@ export default (props: ISearchHeaderProps) => {
             icon={image.people}
             name={"People"}
             text={searchWord}
-            onPress={(name) => console.log(name)}
+            onPress={(name) => {
+              dispatch(searchUsersAction(name))
+              setSearchFocused(false)
+            }}
           />
         </View>
       ) : null}
