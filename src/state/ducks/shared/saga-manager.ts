@@ -48,18 +48,17 @@ class SagaManager {
   ) {
     return function* (action: IAction<AP, AM>) {
       const { taskId = SagaManager.generateNewTaskId(), callback }: ActionMeta = action.meta ?? {}
-
       try {
         // @ts-ignore FIXME: Is there a way to infer this (see typescript 3.6 generators notes)?
         const task: Task = yield fork(handler, action)
-
         SagaManager.tasks.set(taskId, task)
 
         // @ts-ignore FIXME: Is there a way to infer this (see typescript 3.6 generators notes)?
         const response: IResponse<R> = yield join(task)
-
         if (!response.ok) {
           yield handleActionError(response)
+        } else {
+          return response.data
         }
 
         callback && callback({ ok: response.ok })
@@ -91,18 +90,15 @@ class SagaManager {
         TData,
         TResponse
       > as IRequestData<TServerData, TServerResponse, TPathParams, TData, TResponse>
-
       return requestData
     },
     post,
     cancellable = false,
   }: ApiGeneratorParams<P, M, T, TServerData, TServerResponse, TPathParams, TData, TResponse>) {
     const cancelSource = cancellable ? API.newCancelSource() : null
-
     return this.generator(function* (action: Parameters<typeof prepare>[0]) {
       const requestData: IRequestData<TServerData, TServerResponse, TPathParams, TData, TResponse> =
         yield prepare(action)
-
       let response: IResponse<TResponse> = yield apiRequest(endpoint, {
         ...requestData,
         cancelToken: cancelSource?.token,
@@ -111,7 +107,6 @@ class SagaManager {
       if (post) {
         response = yield post(response, action)
       }
-
       return response
     }, cancelSource?.cancel)
   }

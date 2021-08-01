@@ -1,9 +1,9 @@
 import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
 import { AppRoute } from "@github/navigation/routes"
-import dummyComponent from "@github/views/dummy-component"
-import { HomeScreen } from "@github/views/home-component"
-import { Header } from "@github/views/home-component/home-header"
+import { HomeScreen, Header as HomeHeader } from "@github/views/home-component"
+import { SearchScreen, Header as SearchHeader } from "@github/views/search-component"
+
 import { IHomeParamList } from "./home-stack-navogator.types"
 
 const HomeStack = createStackNavigator<IHomeParamList>()
@@ -14,10 +14,16 @@ const HomeStackNavigator = () => (
       name={AppRoute.Home}
       component={HomeScreen}
       options={({ navigation }) => ({
-        header: () => <Header navigation={navigation} />,
+        header: () => <HomeHeader navigation={navigation} />,
       })}
     />
-    <HomeStack.Screen name={AppRoute.Search} component={dummyComponent} />
+    <HomeStack.Screen
+      name={AppRoute.Search}
+      component={SearchScreen}
+      options={({ navigation }) => ({
+        header: () => <SearchHeader navigation={navigation} />,
+      })}
+    />
     {/* <RootStack.Group screenOptions={{ presentation: "modal" }}>
         {// any modal screen  }
       </RootStack.Group> */}
